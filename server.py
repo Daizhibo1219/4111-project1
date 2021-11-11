@@ -318,8 +318,9 @@ def owning():
   else:
     getcol = []
     inuid = request.form.get('uid')
-    getcol.append(request.form.get('uid'))
+    #getcol.append(request.form.get('uid'))
     getcol.append(inuid)
+    getcol.append(request.form.get('uname'))
     getcol.append(request.form.get('cname'))
     getcol.append(request.form.getlist('elements'))
     getcol.append(request.form.getlist('character_rarity'))
@@ -548,7 +549,7 @@ def special():
       context_1, context_2 = type_get(u_order='O.uid', c_order='cname')
       return render_template('special.html', **context_1, **context_2)
     else:
-      number_rows = request.form.getlist('num_row')
+      number_rows = request.form.fgetlist('num_row')
       print("number_rows", number_rows)
       if 'All' in number_rows:
         num_rows = 'All'
